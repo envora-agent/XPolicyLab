@@ -1,0 +1,28 @@
+policy_name: Envora_Agent
+protocol: ws
+host: localhost
+port: null
+bench_name: null
+task_name: null
+ckpt_name: null
+env_cfg_type: null
+seed: null
+action_type: joint
+gpu_id: null
+eval_batch: true
+
+# uv environment for `bash eval.sh ... uv ...` (relative to this directory).
+policy_uv_env_path: .
+# SAM 3 weights; null: vendor/envora_sim/tools/sam3/checkpoints/sam3.pt (download_weights.sh).
+sam3_checkpoint: null
+# allenai/Molmo2-4B commit, read from the Hugging Face cache (download_weights.sh).
+molmo_revision: 042abfa7a38879a376cec03d949eff0aefaa0600
+# One blank-image pass of each model before the server opens its port.
+warmup: true
+# Images the agent sends to the models; null: a fresh temporary directory.
+workdir: null
+# The arms' mounts (entity_origin_pose of dual_x5, left then right) for clients
+# without a robot manager (EVAL_ENV_TYPE=debug); RoboDojo sends its own.
+robot_origin_poses:
+  - [-0.3, -0.45, 0.765, 0.707, 0.0, 0.0, 0.707]
+  - [0.3, -0.45, 0.765, 0.707, 0.0, 0.0, 0.707]
